@@ -83,9 +83,9 @@
       detect_folders = [ ];
     };
     cmd_duration = {
-      show_milliseconds = true;
+      show_milliseconds = false;
       format = "took [$duration](bold yellow) ";
-      disabled = true;
+      disabled = false;
       show_notifications = true;
     };
     conda = {
