@@ -13,6 +13,7 @@
     bat
     fzf
     zoxide
+    starship
     power-profiles-daemon
     kdePackages.qtstyleplugin-kvantum
     kdePackages.kate

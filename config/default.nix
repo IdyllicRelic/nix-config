@@ -8,8 +8,6 @@
         imports = [
           ./helix.nix
           ./alacritty.nix
-          ./starship.nix
-          ./zsh.nix
         ];
         home = {
           stateVersion = "24.11";
