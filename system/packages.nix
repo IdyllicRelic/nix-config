@@ -9,6 +9,9 @@
     unrar
     unzip
     gcc
+    bat
+    fzf
+    zoxide
     power-profiles-daemon
     kdePackages.qtstyleplugin-kvantum
     kdePackages.kate

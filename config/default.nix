@@ -8,7 +8,7 @@
         imports = [
           ./helix.nix
           ./alacritty.nix
-          # ./starship.nix
+          ./starship.nix
           ./zsh.nix
         ];
         home = {
