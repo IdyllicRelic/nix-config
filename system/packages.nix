@@ -12,8 +12,13 @@
     power-profiles-daemon
     kdePackages.qtstyleplugin-kvantum
     kdePackages.kate
+  ];
+
+  fonts.packages = with pkgs; [
     cascadia-code
   ];
+
+  programs.gamemode.enable = true;
 
   # KDE Plasma
   services.xserver.enable = false; # Disables X11

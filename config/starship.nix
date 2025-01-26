@@ -86,7 +86,7 @@
       show_milliseconds = false;
       format = "took [$duration](bold yellow) ";
       disabled = false;
-      show_notifications = true;
+      show_notifications = false;
     };
     conda = {
       truncation_length = 1;
