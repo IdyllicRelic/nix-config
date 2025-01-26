@@ -3,6 +3,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    git
     wget
     aria2
     lm_sensors
