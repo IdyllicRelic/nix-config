@@ -15,12 +15,7 @@
     zoxide
     starship
     power-profiles-daemon
-    kdePackages.qtstyleplugin-kvantum
-    kdePackages.kate
-  ];
-
-  fonts.packages = with pkgs; [
-    cascadia-code
+    helix
   ];
 
   programs.gamemode.enable = true;
