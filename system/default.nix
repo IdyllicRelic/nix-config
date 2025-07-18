@@ -52,7 +52,7 @@
   ];
 
   # Setting Hostname
-  networking.hostName = "nixos";
+  networking.hostName = "Lenovo-nix";
 
   system.stateVersion = "24.11";
 }
