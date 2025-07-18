@@ -18,6 +18,35 @@
     helix
   ];
 
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-calendar
+    gnome-music
+    gnome-contacts
+    gnome-clocks
+    gnome-maps
+    gnome-characters
+    gnome-text-editor
+    gnome-tour
+    gnome-weather
+    gnome-system-monitor
+    gnome-logs
+    gnome-calculator
+    gnome-connections
+    gnome-font-viewer
+    geary
+    decibels
+    snapshot
+    simple-scan
+    totem
+    baobab
+    evince
+    file-roller
+    seahorse
+    loupe
+    yelp
+    epiphany
+  ];
+
   programs.gamemode.enable = true;
 
   # Gnome
