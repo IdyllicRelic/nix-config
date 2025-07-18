@@ -9,7 +9,7 @@
   ];
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest; # Change to linuxPackages_cachyos after installation
   boot.kernelParams = [
     "quiet"
     "splash"
@@ -34,10 +34,25 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
+  # User
+  users.users.seyrn = {
+    home = "/home/seyrn";
+    isNormalUser = true;
+    description = "<ADD NAME>";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+  };
+  programs.zsh.enable = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
+
+  # Setting Hostname
   networking.hostName = "nixos";
+
   system.stateVersion = "24.11";
 }
