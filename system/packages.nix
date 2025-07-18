@@ -57,6 +57,16 @@
 
   programs.gamemode.enable = true;
 
+  # Podman
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   # Gnome
   services.xserver.enable = false; # Disables X11
   services.xserver.displayManager.gdm.enable = true;

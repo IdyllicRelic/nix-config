@@ -45,6 +45,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "podman"
     ];
   };
   programs.zsh.enable = true;
