@@ -16,6 +16,13 @@
     starship
     power-profiles-daemon
     helix
+
+    # Gnome Extensions
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.user-themes
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.caffeine
   ];
 
   environment.gnome.excludePackages = with pkgs; [
@@ -33,6 +40,7 @@
     gnome-calculator
     gnome-connections
     gnome-font-viewer
+    gnome-backgrounds
     geary
     decibels
     snapshot
