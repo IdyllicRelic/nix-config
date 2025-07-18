@@ -8,6 +8,9 @@
     ./packages.nix
   ];
 
+  # Enable zram
+  zramSwap.enable = true;
+
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest; # Change to linuxPackages_cachyos after installation
   boot.kernelParams = [
