@@ -9,7 +9,7 @@
   ];
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest; # Change to linuxPackages_cachyos after installation
+  boot.kernelPackages = pkgs.linuxPackages_6_15; # Change to linuxPackages_cachyos after installation
   boot.kernelParams = [
     "quiet"
     "splash"
