@@ -3,56 +3,54 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    git
-    wget
     aria2
-    lm_sensors
-    unrar
-    unzip
-    gcc
     bat
     fzf
-    zoxide
-    starship
-    power-profiles-daemon
+    gcc
+    git
     helix
+    lm_sensors
+    power-profiles-daemon
+    starship
+    unrar
+    unzip
+    zoxide
 
     # Gnome Extensions
     gnomeExtensions.blur-my-shell
+    gnomeExtensions.caffeine
+    gnomeExtensions.clipboard-indicator
     gnomeExtensions.dash-to-dock
     gnomeExtensions.user-themes
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.caffeine
   ];
 
   environment.gnome.excludePackages = with pkgs; [
+    gnome-backgrounds
     gnome-calendar
-    gnome-music
-    gnome-contacts
-    gnome-clocks
-    gnome-maps
     gnome-characters
+    gnome-clocks
+    gnome-connections
+    gnome-calculator
+    gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-music
     gnome-text-editor
     gnome-tour
     gnome-weather
     gnome-system-monitor
-    gnome-logs
-    gnome-calculator
-    gnome-connections
-    gnome-font-viewer
-    gnome-backgrounds
-    geary
-    decibels
-    snapshot
-    simple-scan
-    totem
     baobab
+    decibels
+    epiphany
     evince
     file-roller
-    seahorse
+    geary
     loupe
+    seahorse
+    simple-scan
+    snapshot
+    totem
     yelp
-    epiphany
   ];
 
   programs.gamemode.enable = true;
