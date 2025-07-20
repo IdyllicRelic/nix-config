@@ -14,6 +14,7 @@
     "quiet"
     "splash"
   ];
+  boot.loader.timeout=0;
 
   # Enable zram
   zramSwap.enable = true;

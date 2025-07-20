@@ -65,6 +65,7 @@
       defaultNetwork.settings.dns_enabled = true;
     };
   };
+  hardware.nvidia-container-toolkit.enable;
 
   # Gnome
   services.xserver.enable = false; # Disables X11
