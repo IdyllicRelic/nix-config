@@ -3,7 +3,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    p7zip
     aria2
     bat
     fzf
@@ -11,6 +10,7 @@
     git
     helix
     lm_sensors
+    p7zip
     power-profiles-daemon
     starship
     unrar
