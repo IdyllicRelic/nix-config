@@ -3,6 +3,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    p7zip
     aria2
     bat
     fzf
