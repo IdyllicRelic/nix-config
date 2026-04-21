@@ -22,7 +22,7 @@
   systemd.network.wait-online.enable = false;
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_6_14; # Change to linuxPackages_cachyos after installation
+  boot.kernelPackages = pkgs.linuxPackages_6_19; # Change to linuxPackages_cachyos after installation
   boot.kernelParams = [
     "quiet"
     "splash"
@@ -61,7 +61,7 @@
       "wheel"
     ];
   };
-  programs.zsh.enable = true;
+  # programs.zsh.enable = true;
 
   # Lid handling
   services.logind.lidSwitch = "ignore";
@@ -78,7 +78,7 @@
     after = [ "network.target" ];
     description = "NVIDIA Overclocking Service";
     serviceConfig = {
-      ExecStart = "/run/current-system/sw/bin/nvidia_oc set --index 0 --freq-offset 100 --mem-offset 200";
+      ExecStart = "/run/current-system/sw/bin/nvidia_oc set --index 0 --freq-offset 180 --mem-offset 360";
       User = "root";
       Restart = "on-failure";
     };
