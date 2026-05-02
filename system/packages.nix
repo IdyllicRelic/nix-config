@@ -12,19 +12,15 @@
     nvidia_oc
     podman
     power-profiles-daemon
-    # p7zip
-    # helix
-    # aria2
-    # bat
-    # fzf
-    # starship
-    # unrar
-    # unzip
-    # zoxide
+    p7zip
+    aria2
+    unrar
+    unzip
   ];
 
   # Services
   services.flatpak.enable = true;
+  services.fwupd.enable = true;
 
   hardware.bluetooth.enable = true;
 }

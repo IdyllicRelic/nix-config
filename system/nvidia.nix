@@ -14,8 +14,6 @@
     nvidiaBusId = "PCI:1:0:0";
   };
 
-  # Hardware Video Aceeleration
-  # hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-media-driver ];
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ intel-media-driver ];

@@ -9,13 +9,6 @@
     ./gnome.nix
   ];
 
-  # services.btrfs.autoScrub = {
-  #   enable = true;
-  #   interval = "monthly";
-  #   fileSystems = [ "/" ];
-  # };
-
-  # Bootup optimizations
   services.fstrim.enable = true;
   services.fstrim.interval = "weekly";
 
@@ -54,7 +47,6 @@
 
   # User
   users.users.seyrn = {
-    home = "/home/seyrn";
     isNormalUser = true;
     description = "<ADD NAME>";
     extraGroups = [
@@ -62,10 +54,6 @@
       "wheel"
     ];
   };
-  # programs.zsh.enable = true;
-
-  # Lid handling
-  services.logind.lidSwitch = "ignore";
 
   nix.settings.experimental-features = [
     "nix-command"
