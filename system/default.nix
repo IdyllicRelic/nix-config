@@ -9,11 +9,11 @@
     ./gnome.nix
   ];
 
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "monthly";
-    fileSystems = [ "/" ];
-  };
+  # services.btrfs.autoScrub = {
+  #   enable = true;
+  #   interval = "monthly";
+  #   fileSystems = [ "/" ];
+  # };
 
   # Bootup optimizations
   services.fstrim.enable = true;
@@ -22,7 +22,8 @@
   systemd.network.wait-online.enable = false;
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_6_19; # Change to linuxPackages_cachyos after installation
+  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_19;
   boot.kernelParams = [
     "quiet"
     "splash"

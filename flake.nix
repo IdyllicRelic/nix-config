@@ -3,13 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
     {
       nixpkgs,
-      chaotic,
+      nix-cachyos-kernel,
       ...
     }:
     {
@@ -17,9 +17,12 @@
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            chaotic.nixosModules.nyx-cache
-            chaotic.nixosModules.nyx-overlay
-            chaotic.nixosModules.nyx-registry
+            (
+                { pkgs, ... }:
+                {
+                  nixpkgs.overlays = [ nix-cachyos-kernel.overlays.default ];
+                }
+              )
             ./system
           ];
         };
