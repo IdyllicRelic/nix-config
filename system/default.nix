@@ -9,10 +9,18 @@
     ./gnome.nix
   ];
 
+  # Optimizations
   services.fstrim.enable = true;
   services.fstrim.interval = "weekly";
 
   systemd.network.wait-online.enable = false;
+
+  nix.optimise.automatic = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   # Kernel
   # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
@@ -20,6 +28,7 @@
   boot.kernelParams = [
     "quiet"
     "splash"
+    "nowatchdog"
   ];
 
   # Enable zram
@@ -48,10 +57,11 @@
   # User
   users.users.seyrn = {
     isNormalUser = true;
-    description = "<ADD NAME>";
+    description = "Seyrn";
     extraGroups = [
       "networkmanager"
       "wheel"
+      "podman"
     ];
   };
 

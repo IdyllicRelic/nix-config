@@ -6,6 +6,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     open = true;
     dynamicBoost.enable = true;
+    powerManagement.enable = true;
   };
   hardware.nvidia.prime = {
     offload.enable = true;
