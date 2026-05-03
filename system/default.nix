@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware.nix
+    ./cachy-kernel.nix
     ./nvidia.nix
     ./audio.nix
     ./network.nix
