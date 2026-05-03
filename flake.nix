@@ -14,7 +14,6 @@
     inputs@{
       self,
       nixpkgs,
-      nix-cachyos-kernel,
       ...
     }:
     {
