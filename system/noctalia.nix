@@ -13,7 +13,15 @@
     xwayland.enable = true;
   };
 
-  programs.regreet.enable = true;
+  programs.regreet = {
+    enable = true;
+    theme.name = "adw-gtk3";
+    settings = {
+      GTK = {
+        application_prefer_dark_theme = true;
+      };
+    };
+  };
 
   services.upower.enable = true;
 
