@@ -24,7 +24,7 @@
 
   # Kernel
   # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_19;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.kernelParams = [
     "quiet"
     "splash"

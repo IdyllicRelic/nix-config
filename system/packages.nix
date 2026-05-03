@@ -3,7 +3,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    ananicy-rules-cachyos
     distrobox
     gcc
     git
@@ -24,7 +23,11 @@
   programs.direnv.enable = true;
 
   # Services
-  services.ananicy-cpp.enable = true;
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+    rulesProvider = pkgs.ananicy-rules-cachyos;
+  };
   services.flatpak.enable = true;
   services.fwupd.enable = true;
   services.power-profiles-daemon.enable = true;
