@@ -5,10 +5,6 @@
 
     adw-gtk3
     alacritty
-    catppuccin-cursors
-    # hyprlock
-    # hypridle
-    # hyprsunset
   ];
 
   programs.hyprland = {
