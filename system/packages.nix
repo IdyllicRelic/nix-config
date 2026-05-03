@@ -9,10 +9,6 @@
     git
     lm_sensors
     nvidia_oc
-    p7zip
-    aria2
-    unrar
-    unzip
   ];
 
   # Podman

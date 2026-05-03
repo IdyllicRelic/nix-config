@@ -30,6 +30,7 @@
           cursor-size = lib.gvariant.mkInt32 18;
           color-scheme = "prefer-dark";
         };
+        "org/gnome/settings-daemon/plugins/color/night-light-enabled" = true;
       };
     }
   ];
