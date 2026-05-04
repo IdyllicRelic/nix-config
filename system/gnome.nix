@@ -34,6 +34,7 @@
         "org/gnome/desktop/interface" = {
           cursor-size = lib.gvariant.mkInt32 18;
           color-scheme = "prefer-dark";
+          gtk-theme = "adw-gtk3";
         };
         "org/gnome/settings-daemon/plugins/color/night-light-enabled" = true;
       };
