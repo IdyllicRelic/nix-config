@@ -24,6 +24,7 @@
 
   # Gnome
   services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Dconf options
   programs.dconf.profiles.user.databases = [
