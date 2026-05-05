@@ -4,10 +4,10 @@
     ./hardware.nix
     ./cachy-kernel.nix
     ./nvidia.nix
-    ./audio.nix
     ./network.nix
     ./packages.nix
     ./gnome.nix
+    # ./noctalia.nix
   ];
 
   # Optimizations
@@ -40,6 +40,17 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 0;
 
+  # User
+  users.users.seyrn = {
+    isNormalUser = true;
+    description = "Seyrn";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "podman"
+    ];
+  };
+
   # Environment/Locale
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -55,15 +66,12 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # User
-  users.users.seyrn = {
-    isNormalUser = true;
-    description = "Seyrn";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "podman"
-    ];
+  # Audio config
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
   };
 
   nix.settings.experimental-features = [
