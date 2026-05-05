@@ -36,7 +36,9 @@
           color-scheme = "prefer-dark";
           gtk-theme = "adw-gtk3";
         };
-        "org/gnome/settings-daemon/plugins/color/night-light-enabled" = true;
+        "org/gnome/settings-daemon/plugins/color" = {
+          night-light-enabled = true;
+        };
       };
     }
   ];
