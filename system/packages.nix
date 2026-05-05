@@ -30,7 +30,7 @@
   };
   services.flatpak.enable = true;
   services.fwupd.enable = true;
-  services.power-profiles-daemon.enable = true;
+  services.tuned.enable = true;
 
   hardware.bluetooth.enable = true;
 }
