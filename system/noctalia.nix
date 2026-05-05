@@ -5,6 +5,7 @@
 
     adw-gtk3
     alacritty
+    nautilus
   ];
 
   programs.hyprland = {
@@ -22,6 +23,19 @@
       };
     };
   };
+
+  programs.dconf.profiles.user.databases = [
+    {
+      lockAll = true;
+      settings = {
+        "org/gnome/desktop/interface" = {
+          cursor-size = lib.gvariant.mkInt32 18;
+          color-scheme = "prefer-dark";
+          gtk-theme = "adw-gtk3";
+        };
+      };
+    }
+  ];
 
   services.upower.enable = true;
 
