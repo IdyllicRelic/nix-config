@@ -8,7 +8,6 @@
     git
     helix
     lm_sensors
-    nvidia_oc
   ];
 
   # Podman

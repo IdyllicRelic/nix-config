@@ -71,19 +71,6 @@
     "flakes"
   ];
 
-  # Automatic nvidia overclocking
-  systemd.services.nvidia_oc = {
-    enable = true;
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    description = "NVIDIA Overclocking Service";
-    serviceConfig = {
-      ExecStart = "/run/current-system/sw/bin/nvidia_oc set --index 0 --freq-offset 180 --mem-offset 360";
-      User = "root";
-      Restart = "on-failure";
-    };
-  };
-
   # Setting Hostname
   networking.hostName = "nixos";
 
