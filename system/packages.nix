@@ -4,11 +4,11 @@
 
   environment.systemPackages = with pkgs; [
     distrobox
-    gcc
-    git
     helix
     lm_sensors
   ];
+
+  programs.git.enable = true;
 
   # Podman
   virtualisation = {
