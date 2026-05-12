@@ -3,7 +3,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    distrobox
     helix
     lm_sensors
   ];
