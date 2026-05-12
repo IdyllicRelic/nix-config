@@ -6,6 +6,7 @@
     ./nvidia.nix
     ./network.nix
     ./packages.nix
+    ./user.nix
     ./gnome.nix
     # ./noctalia.nix
   ];
@@ -39,17 +40,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 0;
-
-  # User
-  users.users.seyrn = {
-    isNormalUser = true;
-    description = "Seyrn";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "podman"
-    ];
-  };
 
   # Environment/Locale
   time.timeZone = "Asia/Kolkata";
