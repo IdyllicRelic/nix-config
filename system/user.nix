@@ -13,6 +13,8 @@
 
   environment.systemPackages = with pkgs; [
     aria2
+    bat
+    eza
     fzf
     unrar
     unzip

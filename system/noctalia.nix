@@ -13,18 +13,29 @@
     nautilus
   ];
 
-  programs.hyprland = {
+  programs.sway = {
     enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
+    extraPackages = [ ];
+    package = pkgs.swayfx;
+  };
+  programs.hyprlock.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services = {
+    greetd.enableGnomeKeyring = true;
+    hyprlock.enableGnomeKeyring = true;
   };
 
-  programs.regreet = {
+  services.greetd = {
     enable = true;
-    theme.name = "adw-gtk3";
     settings = {
-      GTK = {
-        application_prefer_dark_theme = true;
+      initial_session = {
+        command = "${pkgs.swayfx}/bin/sway --unsupported-gpu";
+        user = "seyrn";
+      };
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet";
+        user = "greeter";
       };
     };
   };
