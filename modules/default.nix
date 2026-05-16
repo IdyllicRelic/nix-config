@@ -7,8 +7,6 @@
     ./network.nix
     ./packages.nix
     ./user.nix
-    ./gnome.nix
-    # ./noctalia.nix
   ];
 
   # Optimizations
@@ -21,7 +19,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 14d";
   };
 
   # Kernel
@@ -39,7 +37,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 0;
+  boot.loader.timeout = 1;
 
   # Environment/Locale
   time.timeZone = "Asia/Kolkata";
@@ -70,7 +68,7 @@
   ];
 
   # Setting Hostname
-  networking.hostName = "nixos";
+  networking.hostName = "stratus";
 
   system.stateVersion = "24.11";
 }

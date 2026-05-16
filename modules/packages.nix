@@ -4,7 +4,6 @@
 
   environment.systemPackages = with pkgs; [
     helix
-    lm_sensors
     nixd
     nixfmt
   ];
