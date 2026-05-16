@@ -11,11 +11,15 @@
     adw-gtk3
     alacritty
     nautilus
+    cliphist
+    wl-clipboard
   ];
+
+  services.gvfs.enable = true;
 
   programs.sway = {
     enable = true;
-    extraPackages = [ ];
+    extraPackages = [ pkgs.sway-contrib.grimshot ];
     package = pkgs.swayfx;
   };
   programs.hyprlock.enable = true;
