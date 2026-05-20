@@ -19,6 +19,7 @@
 
   programs.sway = {
     enable = true;
+    wrapperFeatures.gtk = true;
     extraPackages = [ pkgs.sway-contrib.grimshot ];
     package = pkgs.swayfx;
   };

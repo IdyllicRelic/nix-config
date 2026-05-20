@@ -1,7 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
-    ./user.nix
     ./noctalia.nix
   ];
 
