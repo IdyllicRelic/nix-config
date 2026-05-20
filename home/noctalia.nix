@@ -5,12 +5,11 @@
     package = null;
     xwayland = true;
     config = {
+      bars = [ ];
       modifier = "Mod4";
       terminal = "alacritty";
-      menu = "noctalia-shell ipc call launcher toggle";
       # seat.seat0.xcursor_theme = "catppuccin-mocha-dark 18";
       output = {
-        "*".bg = "/run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
         eDP-1 = {
           mode = "1920x1080@144.002Hz";
           scale = "1.2";
@@ -37,10 +36,11 @@
           modifier = config.wayland.windowManager.sway.config.modifier;
         in
         lib.mkOptionDefault {
+          "${modifier}+0" = null;
           "${modifier}+e" = "exec nautilus";
           "${modifier}+q" = "kill";
           "${modifier}+v" = "exec noctalia-shell ipc call launcher clipboard";
-          "${modifier}+space" = "exec ${config.wayland.windowManager.sway.config.menu}";
+          "${modifier}+space" = "exec noctalia-shell ipc call launcher toggle";
           "XF86AudioMute" = "exec noctalia-shell ipc call volume muteOutput";
           "XF86AudioLowerVolume" = "exec noctalia-shell ipc call volume decrease";
           "XF86AudioRaiseVolume" = "exec noctalia-shell ipc call volume increase";
@@ -57,10 +57,12 @@
         { command = "noctalia-shell"; }
         { command = "wl-paste --watch cliphist store"; }
       ];
+      window = {
+        border = 2;
+        titlebar = false;
+      };
     };
     extraConfig = ''
-      default_border pixel 2
-
       blur enable
       blur_passes 2
       blur_radius 3
@@ -72,10 +74,6 @@
 
       bindgesture swipe:left workspace next
       bindgesture swipe:right workspace prev
-
-      exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-      exec "systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK; systemctl --user start sway-session.target"
-      exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
 
       include ~/.config/sway/noctalia
     '';
