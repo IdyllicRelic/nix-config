@@ -36,8 +36,8 @@
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.editor = false;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 1;
 
   # Environment/Locale
   time.timeZone = "Asia/Kolkata";
