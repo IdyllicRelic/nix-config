@@ -8,7 +8,7 @@
       bars = [ ];
       modifier = "Mod4";
       terminal = "alacritty";
-      # seat.seat0.xcursor_theme = "catppuccin-mocha-dark 18";
+      # seat.seat0.xcursor_theme = "catppuccin-mocha-dark 18"; #Cursor theme
       output = {
         eDP-1 = {
           mode = "1920x1080@144.002Hz";

@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./noctalia.nix
+    ./sway.nix
   ];
 
   home.username = "seyrn";
