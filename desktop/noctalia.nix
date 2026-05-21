@@ -15,6 +15,10 @@
     wl-clipboard
   ];
 
+  environment.sessionVariables = {
+    WLR_DRM_DEVICES = "/dev/dri/card2";
+  };
+
   services.gvfs.enable = true;
 
   programs.sway = {
