@@ -39,7 +39,7 @@
     enable = true;
     settings = {
       initial_session = {
-        command = "${pkgs.swayfx}/bin/sway --unsupported-gpu";
+        command = "${pkgs.swayfx}/bin/sway";
         user = "seyrn";
       };
       default_session = {
