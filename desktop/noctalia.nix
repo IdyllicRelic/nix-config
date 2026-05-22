@@ -15,6 +15,10 @@
     wl-clipboard
   ];
 
+  environment.sessionVariables = {
+    WLR_DRM_DEVICES = "/dev/dri/by-name/igpu";
+  };
+
   services.gvfs.enable = true;
 
   programs.sway = {
@@ -35,7 +39,7 @@
     enable = true;
     settings = {
       initial_session = {
-        command = "${pkgs.swayfx}/bin/sway --unsupported-gpu";
+        command = "${pkgs.swayfx}/bin/sway";
         user = "seyrn";
       };
       default_session = {
@@ -62,6 +66,11 @@
   ];
 
   services.upower.enable = true;
+
+  services.udev.extraRules = ''
+    KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x10de", ATTRS{device}=="0x25ed", SYMLINK+="dri/by-name/dgpu"
+    KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x468b", SYMLINK+="dri/by-name/igpu"
+  '';
 
   nix.settings = {
     extra-substituters = [ "https://noctalia.cachix.org" ];
