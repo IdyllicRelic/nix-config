@@ -53,6 +53,9 @@
           cursor-size = lib.gvariant.mkInt32 18;
           color-scheme = "prefer-dark";
           gtk-theme = "adw-gtk3";
+          # font-name = "SUSE 11";
+          # document-font-name = "SUSE 11";
+          # monospace-font-name = "CaskaydiaCove Nerd Font 11";
         };
       };
     }

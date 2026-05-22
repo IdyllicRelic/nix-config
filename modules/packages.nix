@@ -6,6 +6,7 @@
     helix
     nixd
     nixfmt
+    podman-compose
   ];
 
   programs.git.enable = true;
