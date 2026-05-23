@@ -9,8 +9,6 @@
     podman-compose
   ];
 
-  programs.git.enable = true;
-
   # Podman
   virtualisation = {
     containers.enable = true;
@@ -21,17 +19,22 @@
     };
   };
 
-  programs.direnv.enable = true;
+  programs = {
+    git.enable = true;
+    direnv.enable = true;
+  };
 
   # Services
-  services.ananicy = {
-    enable = true;
-    package = pkgs.ananicy-cpp;
-    rulesProvider = pkgs.ananicy-rules-cachyos;
+  services = {
+    ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-rules-cachyos;
+    };
+    flatpak.enable = true;
+    fwupd.enable = false;
+    tuned.enable = true;
   };
-  services.flatpak.enable = true;
-  services.fwupd.enable = true;
-  services.tuned.enable = true;
 
   hardware.bluetooth.enable = true;
 }

@@ -9,22 +9,27 @@
     nvidia_oc
   ];
 
-  # Podman GPU support
-  hardware.nvidia-container-toolkit.enable = true;
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-    open = true;
-    dynamicBoost.enable = true;
-    powerManagement.enable = true;
-  };
-
-  hardware.nvidia.prime = {
-    offload.enable = true;
-    offload.enableOffloadCmd = true;
-    intelBusId = "PCI:0@0:2:0";
-    nvidiaBusId = "PCI:1@0:0:0";
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      open = true;
+      dynamicBoost.enable = true;
+      powerManagement.enable = true;
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        intelBusId = "PCI:0@0:2:0";
+        nvidiaBusId = "PCI:1@0:0:0";
+      };
+    };
+    nvidia-container-toolkit.enable = true; # Podman GPU Support
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [ intel-media-driver ];
+    };
   };
 
   # Automatic nvidia overclocking
@@ -38,11 +43,6 @@
       User = "root";
       Restart = "on-failure";
     };
-  };
-
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [ intel-media-driver ];
   };
 
   environment.sessionVariables = {

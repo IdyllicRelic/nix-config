@@ -20,7 +20,9 @@
     unzip
   ];
 
-  programs.starship.enable = true;
-  programs.zoxide.enable = true;
-  programs.zsh.enable = true;
+  programs = {
+    starship.enable = true;
+    zoxide.enable = true;
+    zsh.enable = true;
+  };
 }

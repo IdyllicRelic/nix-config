@@ -31,9 +31,11 @@
             ./desktop
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.seyrn = ./home;
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.seyrn = ./home;
+              };
             }
           ];
         };

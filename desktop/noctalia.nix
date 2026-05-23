@@ -38,22 +38,24 @@
     hyprlock.enableGnomeKeyring = true;
   };
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet";
-        user = "greeter";
+  services = {
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet";
+          user = "greeter";
+        };
       };
     };
+    gvfs.enable = true;
+    gnome.gnome-keyring.enable = true;
+    udev.extraRules = ''
+      KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x10de", ATTRS{device}=="0x25ed", SYMLINK+="dri/by-name/dgpu"
+      KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x468b", SYMLINK+="dri/by-name/igpu"
+    '';
+    upower.enable = true;
   };
-  services.gvfs.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  services.udev.extraRules = ''
-    KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x10de", ATTRS{device}=="0x25ed", SYMLINK+="dri/by-name/dgpu"
-    KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x468b", SYMLINK+="dri/by-name/igpu"
-  '';
-  services.upower.enable = true;
 
   nix.settings = {
     extra-substituters = [ "https://noctalia.cachix.org" ];

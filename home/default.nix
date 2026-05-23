@@ -4,7 +4,9 @@
     ./sway.nix
   ];
 
-  home.username = "seyrn";
-  home.homeDirectory = "/home/seyrn";
-  home.stateVersion = "24.11";
+  home = {
+    username = "seyrn";
+    homeDirectory = "/home/seyrn";
+    stateVersion = "24.11";
+  };
 }

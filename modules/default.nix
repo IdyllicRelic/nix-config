@@ -10,8 +10,10 @@
   ];
 
   # Optimizations
-  services.fstrim.enable = true;
-  services.fstrim.interval = "weekly";
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
 
   systemd.network.wait-online.enable = false;
 
@@ -35,23 +37,29 @@
   zramSwap.enable = true;
 
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.editor = false;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      editor = false;
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
   # Environment/Locale
   time.timeZone = "Asia/Kolkata";
-  i18n.defaultLocale = "en_GB.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_GB.UTF-8";
+  i18n = {
+    defaultLocale = "en_GB.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_IN";
+      LC_IDENTIFICATION = "en_IN";
+      LC_MEASUREMENT = "en_GB.UTF-8";
+      LC_MONETARY = "en_IN";
+      LC_NAME = "en_IN";
+      LC_NUMERIC = "en_GB.UTF-8";
+      LC_PAPER = "en_IN";
+      LC_TELEPHONE = "en_IN";
+      LC_TIME = "en_GB.UTF-8";
+    };
   };
 
   # Audio config
