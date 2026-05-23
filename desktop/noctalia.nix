@@ -15,39 +15,7 @@
     wl-clipboard
   ];
 
-  environment.sessionVariables = {
-    WLR_DRM_DEVICES = "/dev/dri/by-name/igpu";
-  };
-
-  services.gvfs.enable = true;
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    extraPackages = [ pkgs.sway-contrib.grimshot ];
-    package = pkgs.swayfx;
-  };
   programs.hyprlock.enable = true;
-
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services = {
-    greetd.enableGnomeKeyring = true;
-    hyprlock.enableGnomeKeyring = true;
-  };
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      initial_session = {
-        command = "${pkgs.swayfx}/bin/sway";
-        user = "seyrn";
-      };
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet";
-        user = "greeter";
-      };
-    };
-  };
 
   programs.dconf.profiles.user.databases = [
     {
@@ -65,12 +33,27 @@
     }
   ];
 
-  services.upower.enable = true;
+  security.pam.services = {
+    greetd.enableGnomeKeyring = true;
+    hyprlock.enableGnomeKeyring = true;
+  };
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet";
+        user = "greeter";
+      };
+    };
+  };
+  services.gvfs.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   services.udev.extraRules = ''
     KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x10de", ATTRS{device}=="0x25ed", SYMLINK+="dri/by-name/dgpu"
     KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x468b", SYMLINK+="dri/by-name/igpu"
   '';
+  services.upower.enable = true;
 
   nix.settings = {
     extra-substituters = [ "https://noctalia.cachix.org" ];
