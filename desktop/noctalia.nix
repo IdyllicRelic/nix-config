@@ -10,6 +10,7 @@
 
     adw-gtk3
     alacritty
+    grimshot
     nautilus
     cliphist
     wl-clipboard
