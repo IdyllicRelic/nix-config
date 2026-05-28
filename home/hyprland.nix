@@ -62,6 +62,140 @@
           vrr = 1;
         };
       };
+      curve = [
+        {
+          _args = [
+            "wind"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ { 0.05, 0.9 }, { 0.1, 1.05 } }";
+            }
+          ];
+        }
+        {
+          _args = [
+            "winIn"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ {0.1, 1.1 }, { 0.1, 1.1 } }";
+            }
+          ];
+        }
+        {
+          _args = [
+            "winOut"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ { 0.3, -0.3 }, { 0, 1 } }";
+            }
+          ];
+        }
+        {
+          _args = [
+            "liner"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ { 1, 1 }, { 1, 1 } }";
+            }
+          ];
+        }
+        {
+          _args = [
+            "overshot"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ { 0.05, 0.9 }, { 0.1, 1.05 } }";
+            }
+          ];
+        }
+        {
+          _args = [
+            "smoothOut"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ { 0.5, 0 }, { 0.99, 0.99 } }";
+            }
+          ];
+        }
+        {
+          _args = [
+            "smoothIn"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ { 0.5, -0.5 }, { 0.68, 1.5 } }";
+            }
+          ];
+        }
+      ];
+      animation = [
+        {
+          leaf = "windows";
+          enabled = true;
+          speed = 6;
+          bezier = "wind";
+          style = "slide";
+        }
+        {
+          leaf = "windowsIn";
+          enabled = true;
+          speed = 5;
+          bezier = "winIn";
+          style = "slide";
+        }
+        {
+          leaf = "windowsOut";
+          enabled = true;
+          speed = 3;
+          bezier = "smoothOut";
+          style = "slide";
+        }
+        {
+          leaf = "windowsMove";
+          enabled = true;
+          speed = 5;
+          bezier = "wind";
+          style = "slide";
+        }
+        {
+          leaf = "border";
+          enabled = true;
+          speed = 1;
+          bezier = "liner";
+        }
+        {
+          leaf = "borderangle";
+          enabled = true;
+          speed = 100;
+          bezier = "liner";
+          style = "loop";
+        }
+        {
+          leaf = "fade";
+          enabled = true;
+          speed = 3;
+          bezier = "smoothOut";
+        }
+        {
+          leaf = "workspaces";
+          enabled = true;
+          speed = 5;
+          bezier = "overshot";
+        }
+        {
+          leaf = "workspacesIn";
+          enabled = true;
+          speed = 5;
+          bezier = "winIn";
+          style = "slide";
+        }
+        {
+          leaf = "workspacesOut";
+          enabled = true;
+          speed = 5;
+          bezier = "winOut";
+          style = "slide";
+        }
+      ];
       layer_rule = {
         name = "noctalia";
         match.namespace = "noctalia-background-.*$";
