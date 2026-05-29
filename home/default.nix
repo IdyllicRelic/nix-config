@@ -2,6 +2,7 @@
 {
   imports = [
     ./sway.nix
+    # ./hyprland.nix
   ];
 
   home = {
