@@ -218,6 +218,7 @@
             function()
               hl.exec_cmd("hyprlock")
               hl.exec_cmd("noctalia-shell")
+              hl.exec_cmd("hyprctl setcursor catppuccin-mocha-dark 16")
               hl.exec_cmd("wl-paste --watch cliphist store")
             end
           '')
@@ -394,6 +395,9 @@
         ) 9
       ));
     };
+    extraConfig = ''
+      dofile(os.getenv("HOME") .. "/.config/hypr/noctalia/noctalia-colors.lua")
+    '';
   };
 
   xdg.configFile = {
@@ -403,8 +407,8 @@
       export SDL_VIDEODRIVER="wayland"
 
       export GTK_THEME="adw-gtk3"
-      # export XCURSOR_THEME=catppuccin-mocha-dark
-      export XCURSOR_SIZE=18
+      export XCURSOR_THEME=catppuccin-mocha-dark
+      export XCURSOR_SIZE=16
     '';
     "uwsm/env-hyprland".text = ''
       export AQ_DRM_DEVICES="/dev/dri/by-name/igpu"
