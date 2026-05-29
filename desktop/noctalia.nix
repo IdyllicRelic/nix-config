@@ -10,7 +10,7 @@
 
     adw-gtk3
     alacritty
-    grimshot
+    sway-contrib.grimshot
     nautilus
     cliphist
     wl-clipboard
