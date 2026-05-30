@@ -414,7 +414,7 @@
       export XCURSOR_SIZE=16
     '';
     "uwsm/env-hyprland".text = ''
-      export AQ_DRM_DEVICES="/dev/dri/by-name/igpu:/dev/dri/by-name/dgpu"
+      export AQ_DRM_DEVICES="/dev/dri/by-name/igpu"
     '';
   };
 }
