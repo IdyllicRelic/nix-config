@@ -20,20 +20,25 @@
   };
 
   programs = {
+    gamemode.enable = true;
     git.enable = true;
     direnv.enable = true;
   };
 
   # Services
   services = {
-    ananicy = {
-      enable = true;
-      package = pkgs.ananicy-cpp;
-      rulesProvider = pkgs.ananicy-rules-cachyos;
-    };
     flatpak.enable = true;
     fwupd.enable = false;
+    scx = {
+      enable = true;
+      scheduler = "scx_lavd";
+    };
     tuned.enable = true;
+    undervolt = {
+      enable = true;
+      coreOffset = -100;
+      gpuOffset = -100;
+    };
   };
 
   hardware.bluetooth.enable = true;

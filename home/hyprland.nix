@@ -27,6 +27,9 @@
           accel_profile = "flat";
           touchpad.natural_scroll = true;
         };
+        xwayland = {
+          force_zero_scaling = true;
+        };
         general = {
           gaps_in = 5;
           gaps_out = 10;
@@ -411,7 +414,7 @@
       export XCURSOR_SIZE=16
     '';
     "uwsm/env-hyprland".text = ''
-      export AQ_DRM_DEVICES="/dev/dri/by-name/igpu"
+      export AQ_DRM_DEVICES="/dev/dri/by-name/igpu:/dev/dri/by-name/dgpu"
     '';
   };
 }
