@@ -11,7 +11,7 @@
         output = "";
         mode = "1920x1080@144";
         position = "auto";
-        scale = "1.2";
+        scale = "1.25";
       };
       gesture = {
         fingers = 3;
@@ -165,13 +165,6 @@
           enabled = true;
           speed = 1;
           bezier = "liner";
-        }
-        {
-          leaf = "borderangle";
-          enabled = true;
-          speed = 100;
-          bezier = "liner";
-          style = "loop";
         }
         {
           leaf = "fade";
@@ -332,8 +325,8 @@
         }
         {
           _args = [
-            "SUPER + L"
-            (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "right" })'')
+            "SUPER + J"
+            (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "down" })'')
           ];
         }
         {
@@ -344,8 +337,32 @@
         }
         {
           _args = [
-            "SUPER + J"
-            (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "down" })'')
+            "SUPER + L"
+            (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "right" })'')
+          ];
+        }
+        {
+          _args = [
+            "SUPER + SHIFT + H"
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "left" })'')
+          ];
+        }
+        {
+          _args = [
+            "SUPER + SHIFT + J"
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "down" })'')
+          ];
+        }
+        {
+          _args = [
+            "SUPER + SHIFT + K"
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "up" })'')
+          ];
+        }
+        {
+          _args = [
+            "SUPER + SHIFT + L"
+            (lib.generators.mkLuaInline ''hl.dsp.window.move({ direction = "right" })'')
           ];
         }
         {
