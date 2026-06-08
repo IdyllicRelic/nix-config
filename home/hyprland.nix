@@ -69,128 +69,178 @@
       curve = [
         {
           _args = [
-            "wind"
+            "expressiveFastSpatial"
             {
               type = "bezier";
-              points = lib.generators.mkLuaInline "{ { 0.05, 0.9 }, { 0.1, 1.05 } }";
+              points = lib.generators.mkLuaInline "{ { 0.42, 1.67 }, { 0.21, 0.90 } }";
             }
           ];
         }
         {
           _args = [
-            "winIn"
+            "expressiveSlowSpatial"
             {
               type = "bezier";
-              points = lib.generators.mkLuaInline "{ {0.1, 1.1 }, { 0.1, 1.1 } }";
+              points = lib.generators.mkLuaInline "{ { 0.39, 1.29 }, { 0.35, 0.98 } }";
             }
           ];
         }
         {
           _args = [
-            "winOut"
+            "expressiveDefaultSpatial"
             {
               type = "bezier";
-              points = lib.generators.mkLuaInline "{ { 0.3, -0.3 }, { 0, 1 } }";
+              points = lib.generators.mkLuaInline "{ { 0.38, 1.21 }, { 0.22, 1.00 } }";
             }
           ];
         }
         {
           _args = [
-            "liner"
+            "emphasizedDecel"
             {
               type = "bezier";
-              points = lib.generators.mkLuaInline "{ { 1, 1 }, { 1, 1 } }";
+              points = lib.generators.mkLuaInline "{ { 0.05, 0.7 }, {0.1, 1 } }";
             }
           ];
         }
         {
           _args = [
-            "overshot"
+            "emphasizedAccel"
             {
               type = "bezier";
-              points = lib.generators.mkLuaInline "{ { 0.05, 0.9 }, { 0.1, 1.05 } }";
+              points = lib.generators.mkLuaInline "{ { 0.3, 0 }, { 0.8, 0.15 } }";
             }
           ];
         }
         {
           _args = [
-            "smoothOut"
+            "standardDecel"
             {
               type = "bezier";
-              points = lib.generators.mkLuaInline "{ { 0.5, 0 }, { 0.99, 0.99 } }";
+              points = lib.generators.mkLuaInline "{ { 0, 0 }, { 0.8, 0.15 } }";
             }
           ];
         }
         {
           _args = [
-            "smoothIn"
+            "menu_decel"
             {
               type = "bezier";
-              points = lib.generators.mkLuaInline "{ { 0.5, -0.5 }, { 0.68, 1.5 } }";
+              points = lib.generators.mkLuaInline "{ { 0.1, 1 }, { 0, 1 } }";
+            }
+          ];
+        }
+        {
+          _args = [
+            "menu_accel"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ { 0.52, 0.03 }, { 0.72, 0.08 } }";
+            }
+          ];
+        }
+        {
+          _args = [
+            "stall"
+            {
+              type = "bezier";
+              points = lib.generators.mkLuaInline "{ { 1, -0.1 }, { 0.7, 0.85 } }";
             }
           ];
         }
       ];
       animation = [
         {
-          leaf = "windows";
-          enabled = true;
-          speed = 6;
-          bezier = "wind";
-          style = "slide";
-        }
-        {
           leaf = "windowsIn";
           enabled = true;
-          speed = 5;
-          bezier = "winIn";
-          style = "slide";
+          speed = 3;
+          bezier = "emphasizedDecel";
+          style = "popin 80%";
+        }
+        {
+          leaf = "fadeIn";
+          enabled = true;
+          speed = 3;
+          bezier = "emphasizedDecel";
         }
         {
           leaf = "windowsOut";
           enabled = true;
-          speed = 3;
-          bezier = "smoothOut";
-          style = "slide";
+          speed = 2;
+          bezier = "emphasizedDecel";
+          style = "popin 90%";
+        }
+        {
+          leaf = "fadeOut";
+          enabled = true;
+          speed = 2;
+          bezier = "emphasizedDecel";
         }
         {
           leaf = "windowsMove";
           enabled = true;
-          speed = 5;
-          bezier = "wind";
+          speed = 3;
+          bezier = "emphasizedDecel";
           style = "slide";
         }
         {
           leaf = "border";
           enabled = true;
-          speed = 1;
-          bezier = "liner";
+          speed = 10;
+          bezier = "emphasizedDecel";
         }
         {
-          leaf = "fade";
+          leaf = "layersIn";
           enabled = true;
-          speed = 3;
-          bezier = "smoothOut";
+          speed = 2.7;
+          bezier = "emphasizedDecel";
+          style = "popin 93%";
+        }
+        {
+          leaf = "layersOut";
+          enabled = true;
+          speed = 2.4;
+          bezier = "menu_accel";
+          style = "popin 94%";
+        }
+        {
+          leaf = "fadeLayersIn";
+          enabled = true;
+          speed = 0.5;
+          bezier = "menu_decel";
+        }
+        {
+          leaf = "fadeLayersOut";
+          enabled = true;
+          speed = 2.7;
+          bezier = "stall";
         }
         {
           leaf = "workspaces";
           enabled = true;
-          speed = 5;
-          bezier = "overshot";
-        }
-        {
-          leaf = "workspacesIn";
-          enabled = true;
-          speed = 5;
-          bezier = "winIn";
+          speed = 7;
+          bezier = "menu_decel";
           style = "slide";
         }
         {
-          leaf = "workspacesOut";
+          leaf = "specialWorkspaceIn";
           enabled = true;
-          speed = 5;
-          bezier = "winOut";
-          style = "slide";
+          speed = 2.8;
+          bezier = "emphasizedDecel";
+          style = "slidevert";
+        }
+        {
+          leaf = "specialWorkspaceOut";
+          enabled = true;
+          speed = 1.2;
+          bezier = "emphasizedAccel";
+          style = "slidevert";
+        }
+        {
+          leaf = "zoomFactor";
+          enabled = true;
+          speed = 3;
+          bezier = "standardDecel";
         }
       ];
       layer_rule = {
