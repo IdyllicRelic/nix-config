@@ -55,7 +55,7 @@
           blur = {
             enabled = true;
             size = 3;
-            passes = 2;
+            passes = 1;
             vibrancy = 0.1696;
           };
         };
@@ -182,12 +182,6 @@
           speed = 3;
           bezier = "emphasizedDecel";
           style = "slide";
-        }
-        {
-          leaf = "border";
-          enabled = true;
-          speed = 10;
-          bezier = "emphasizedDecel";
         }
         {
           leaf = "layersIn";

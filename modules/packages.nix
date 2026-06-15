@@ -20,9 +20,12 @@
   };
 
   programs = {
-    gamemode.enable = true;
+    ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-rules-cachyos;
+    };
     git.enable = true;
-    direnv.enable = true;
   };
 
   # Services
@@ -31,9 +34,9 @@
     fwupd.enable = false;
     scx = {
       enable = true;
-      scheduler = "scx_lavd";
+      scheduler = "scx_cake";
     };
-    tuned.enable = true;
+    power-profiles-daemon.enable = true;
     undervolt = {
       enable = true;
       coreOffset = -100;
