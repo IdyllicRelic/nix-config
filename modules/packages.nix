@@ -34,7 +34,7 @@
     fwupd.enable = false;
     scx = {
       enable = true;
-      scheduler = "scx_cake";
+      scheduler = "scx_lavd";
     };
     power-profiles-daemon.enable = true;
     undervolt = {

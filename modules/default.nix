@@ -25,7 +25,7 @@
   };
 
   # Kernel
-  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
   boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.kernelParams = [
     "quiet"
