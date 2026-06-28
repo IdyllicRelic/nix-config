@@ -460,7 +460,7 @@
       ));
     };
     extraConfig = ''
-      dofile(os.getenv("HOME") .. "/.config/hypr/noctalia/noctalia-colors.lua")
+      require("noctalia").apply_theme()
     '';
   };
 
