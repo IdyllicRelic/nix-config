@@ -6,8 +6,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    # inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-
+    noctalia
     adw-gtk3
     alacritty
     sway-contrib.grimshot
@@ -23,7 +22,7 @@
       lockAll = true;
       settings = {
         "org/gnome/desktop/interface" = {
-          cursor-size = lib.gvariant.mkInt32 18;
+          cursor-size = lib.gvariant.mkInt32 16;
           color-scheme = "prefer-dark";
           gtk-theme = "adw-gtk3";
           # font-name = "SUSE 11";
@@ -56,12 +55,5 @@
       KERNEL=="card*", SUBSYSTEM=="drm", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x468b", SYMLINK+="dri/by-name/igpu"
     '';
     upower.enable = true;
-  };
-
-  nix.settings = {
-    extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-    ];
   };
 }

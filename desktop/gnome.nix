@@ -7,7 +7,7 @@
     gnomeExtensions.dash-to-dock
     gnomeExtensions.user-themes
 
-    gnome-console
+    alacritty
     gnome-software
     nautilus
     adw-gtk3
@@ -34,15 +34,12 @@
       lockAll = true;
       settings = {
         "org/gnome/desktop/interface" = {
-          cursor-size = lib.gvariant.mkInt32 18;
+          cursor-size = lib.gvariant.mkInt32 16;
           color-scheme = "prefer-dark";
           gtk-theme = "adw-gtk3";
           # font-name = "SUSE 11";
           # document-font-name = "SUSE 11";
           # monospace-font-name = "CaskaydiaCove Nerd Font 11";
-        };
-        "org/gnome/settings-daemon/plugins/color" = {
-          night-light-enabled = true;
         };
       };
     }

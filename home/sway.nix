@@ -39,13 +39,13 @@
           "${modifier}+0" = null;
           "${modifier}+e" = "exec nautilus";
           "${modifier}+q" = "kill";
-          "${modifier}+v" = "exec noctalia-shell ipc call launcher clipboard";
-          "${modifier}+space" = "exec noctalia-shell ipc call launcher toggle";
-          "XF86AudioMute" = "exec noctalia-shell ipc call volume muteOutput";
-          "XF86AudioLowerVolume" = "exec noctalia-shell ipc call volume decrease";
-          "XF86AudioRaiseVolume" = "exec noctalia-shell ipc call volume increase";
-          "XF86MonBrightnessDown" = "exec noctalia-shell ipc call brightness decrease";
-          "XF86MonBrightnessUp" = "exec noctalia-shell ipc call brightness increase";
+          "${modifier}+v" = "exec $ipc panel-toggle clipboard";
+          "${modifier}+space" = "exec $ipc panel-toggle launcher";
+          "XF86AudioMute" = "exec $ipc volume-mute";
+          "XF86AudioLowerVolume" = "exec $ipc volume-down";
+          "XF86AudioRaiseVolume" = "exec $ipc volume-up";
+          "XF86MonBrightnessDown" = "exec $ipc brightness-down";
+          "XF86MonBrightnessUp" = "exec $ipc brightness-up";
           "Print" = "exec grimshot savecopy area";
         };
       gaps = {
@@ -63,6 +63,8 @@
       };
     };
     extraConfig = ''
+      set $ipc noctalia msg
+      
       blur enable
       blur_passes 2
       blur_radius 3

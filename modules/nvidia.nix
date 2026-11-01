@@ -39,7 +39,7 @@
     after = [ "network.target" ];
     description = "NVIDIA Overclocking Service";
     serviceConfig = {
-      ExecStart = "/run/current-system/sw/bin/nvidia_oc set --index 0 --freq-offset 180 --mem-offset 360";
+      ExecStart = "/run/current-system/sw/bin/nvidia_oc set --index 0 --freq-offset 185 --mem-offset 390";
       User = "root";
       Restart = "on-failure";
     };

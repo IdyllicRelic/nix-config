@@ -3,7 +3,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    helix
+    steelix
     nixd
     nixfmt
     podman-compose
